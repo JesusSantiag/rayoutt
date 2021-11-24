@@ -6,7 +6,4 @@ $conn = mysqli_connect(
   '',
   'estudio_tatto'
 )or die(mysqli_erro($mysqli)); 
-
-
-
 ?>

@@ -1,31 +1,38 @@
-<?php include ("db.php"); ?>
-<?php include ("includes/header.php"); ?>
+<?php 
+include ("db.php");
+include ("includes/header.php"); 
+if(isset($_SESSION['islogin'])){
+  header('Location: citas.php');
+}
+?>
 
 
 <div class="container p-4">
 <div class="col-md-4 mx-auto">
-<body>
-   <div class="login-box">
-    <img src="img/ray.jpg" width="60" height="60"  alt="logo de fazt">
-      <h1>LOGIN</h1>
-        <form action="citas.php">
-           <!-- usuario -->
-          <label for="usuario"><h4>usuario</h4></label>
-          <input type="text" name="nombre de usuario"  class="form-control"  ><br>
-         <!-- usuario -->
-          <label for="contraseña"><h4>contraseña</h4></label>
-          <input type="pasword" name="contraseña"  class="form-control" >
-          <input type="submit" name="ingresar" class="btn btn-success btn-block" value="ingresar" >
-          <a href="#" >Olvidaste tu contraseña<i class="fas fa-angle-double-right"></i></a><br>
-          <a href="#" >Crear una cuenta <i class="fas fa-angle-double-right"></i></a>
-        </form>
+
+    <?php if (isset($_SESSION['message']) && $_SESSION['message'] != "") { ?>
+      <div class="alert alert- warnig <?= $_SESSION['message_type'];?>alert-dismissible fade show"role="alert">
+        <?= $_SESSION['message']?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <?php  $_SESSION["message"] = "";} ?>
+
+  <div class="login-box">
+    <div class="login-icon">
+      <img  src="img/ray.jpg" width="60" height="60"  alt="logo de fazt">
     </div>
-
-</body>
-
-
-
-
-
+      <h1 class="text-center mt-2">LOGIN</h1>
+        <form action="val_login.php" method="POST">
+           <!-- usuario -->
+          <label><h4>usuario</h4></label>
+          <input type="text" name="nameuser" class="form-control"  ><br>
+         <!-- usuario -->
+          <label><h4>contraseña</h4></label>
+          <input type="password" name="password"  class="form-control" >
+          <input type="submit" class="btn btn-success btn-block" value="ingresar" >
+        </form>
+  </div>
 
 <?php include("includes/footer.php");?>

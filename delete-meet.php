@@ -4,7 +4,7 @@ include("db.php");
 
 if(isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "DELETE FROM usuario WHERE id = $id";
+  $query = "DELETE FROM meet WHERE id = $id";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
@@ -12,7 +12,7 @@ if(isset($_GET['id'])) {
 
   $_SESSION['message'] = 'Se Elimino Correctamente';
   $_SESSION['message_type'] = 'danger';
-  header('Location: citas.php');
+  header('Location: meet.php');
 }
 
 ?>

@@ -21,6 +21,7 @@
     </head>
 
     <body>
+
         <div class ="menu-btn">
             <i class="fas fa-bars"></i>
         </div> 
@@ -33,13 +34,17 @@
             <!-- Left Nav -->
             <ul class="nav-menu show">
                 <li>
-                <a href="index.php">Inicio</a>
+                <a href="citas.php">Contactos</a>
                 </li>
                 <li>
-                <a href="contact.php">Contacto</a>
+                <a href="meet.php">Citas</a>
                 </li>
+                
+            </ul>
+
+            <ul class="nav-menu-right">
                 <li>
-                <a href="login.php">Login</a>
+                    <a href="logout.php">Cerrar Sesión</a>
                 </li>
             </ul>
             </nav>

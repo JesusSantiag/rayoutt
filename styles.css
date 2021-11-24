@@ -292,9 +292,14 @@
     }
        
 } 
+.card-body{
+  width: 50%;
+  margin: auto;
+}
 
-.error{
-  background: #000000;
+.login-icon{
+  display: flex;
+  justify-content: center;
 }
 
 

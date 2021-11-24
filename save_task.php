@@ -4,23 +4,18 @@ include("db.php");
 
 if (isset($_POST['nombre'])) {
   $Nombre = $_POST['nombre'];
-  $Apellido = $_POST['apellido'];
   $Correo = $_POST['correo'];
   $Telefono = $_POST['telefono'];
-  $query = "INSERT INTO usuario(Nombre, Apellido, Correo, Telefono)
-   VALUES ('$Nombre', '$Apellido','$Correo', '$Telefono' )";
+  $Mensaje = $_POST['mensaje'];
+  $query = "INSERT INTO contact(name, email, phone, message)
+   VALUES ('$Nombre','$Correo', '$Telefono','$Mensaje')";
   $result = mysqli_query($conn, $query);
   if(!$result) {
     die("Query Failed.");
-    
   }
-
-  
- 
-  $_SESSION['message'] = 'se envio correctamente';
-  $_SESSION['message_type'] = 'red';
-  header('Location: index.php');
-
+  $_SESSION['message'] = 'Se envió correctamente, por favor espera la respuesta';
+  $_SESSION['message_type'] = 'white';
+  header('Location: contact.php');
 }
 
 ?>
